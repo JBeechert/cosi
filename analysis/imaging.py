@@ -1,3 +1,6 @@
+# Based on T. Siegert's COSIpy classic Richardson-Lucy jupyter notebook
+# J. Beechert: turn that notebook into an imaging class for future cosipy tools
+
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm.autonotebook import tqdm
