@@ -12,19 +12,19 @@ df = pd.read_csv(file, skiprows=1, header=None, names=['time', 'altitude'])
 
 
 # Remove rows which read 0 altitude
-# "2016-06-13 08:26:39" to "2016-06-13 11:43:26" have 0 altitude, among others
+# "2016-06-13 08:26:39" to "2016-06-13 11:43:26" have 0 altitude, among other times
 df = df[df.altitude != 0.00]
 
 
 # Make the figure
 fig, ax = plt.subplots(1, 1) 
 
-# Plot altitude [km] ~every hour (approximate because you removed non-zero values)
+# Plot altitude [km] ~every hour (approximate because you removed all zero values)
 ax.plot(df['time'][::3600], df['altitude'][::3600]/1000, 'k-')
 ax.set_xlabel('Time [UTC]', fontsize=14)
 ax.set_ylabel('Altitude [km]', fontsize=14)
 
-# Time labels: ~one label per week (approximate because you removed non-zero values)
+# Time labels: ~one label per week (approximate because you removed all zero values)
 times_per_week = np.array(df['time'][::604800])
 x_labels = []
 for x in times_per_week:
