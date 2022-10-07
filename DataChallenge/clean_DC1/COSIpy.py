@@ -640,7 +640,8 @@ class dataset(COSIpy):
 
             ph_dx = 0
             # loop over defined time bins
-            for t in tqdm(range(self.times.n_time_bins),desc='Loop over time bins:'):
+            #for t in tqdm(range(self.times.n_time_bins),desc='Loop over time bins:'):
+            for t in range(self.times.n_time_bins):
 
                 if self.times.n_ph_t[t] != 0:
                 
@@ -655,7 +656,8 @@ class dataset(COSIpy):
                     erg_tmp = self.data['Energies'][idx_tmp]
                     
                     # because FISBEL is not monotonic in both dimensions, loop over FISBEL bins
-                    for f in tqdm(range(self.n_fisbel_bins),leave=False):
+                    #for f in tqdm(range(self.n_fisbel_bins),leave=False):
+                    for f in range(self.n_fisbel_bins):
 
                         # select 2D pixel range where photons fall in
                         fisbel_idx_tmp = np.where((chi_tmp >= self.fisbels.lon_min[f]) &
